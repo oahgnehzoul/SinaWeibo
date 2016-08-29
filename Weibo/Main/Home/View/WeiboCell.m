@@ -12,7 +12,6 @@
 @implementation WeiboCell
 
 - (void)awakeFromNib {
-    // Initialization code
     self.weiboView = [[WeiboView alloc] initWithFrame:CGRectZero];
     self.weiboView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.weiboView];
@@ -22,8 +21,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 
@@ -42,23 +39,18 @@
     self.userName.text = model.userModel.screen_name;
     self.commentLabel.text = [NSString stringWithFormat:@"评论:%@",model.commentsCount];
     self.repostsLabel.text = [NSString stringWithFormat:@"转发:%@",model.repostsCount];
-//    NSLog(@"%@",model.source);
 
     if ([model.source isEqualToString:@""]) {
         self.sourceLabel.text = @" ";
     }else {
         self.sourceLabel.text = [NSString stringWithFormat:@"来自%@",model.source];
     }
-//    NSLog(@"%@",self.sourceLabel.text);
     self.sourceLabel.colorName = @"Timeline_Time_color";
     self.commentLabel.colorName = @"Timeline_Name_color";
     self.repostsLabel.colorName = @"Timeline_Name_color";
     self.userName.colorName = @"Timeline_Name_color";
     NSString *str = [Utils weiboDateString:model.createDate];
-//    NSLog(@"%@",model.createDate);
     self.creatTime.text = str;
-//#warning time
-//    NSLog(@"%@",str);
     self.creatTime.colorName = @"Timeline_Time_color";
     self.weiboView.frame = self.layoutFrame.frame;
     self.weiboView.layoutFrame = self.layoutFrame;

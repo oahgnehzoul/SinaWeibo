@@ -23,18 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self createTableView];
 }
 
 - (void)createTableView {
-//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, KWidth, KHeight) style: UITableViewStyleGrouped];
-#ifdef debug
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, KWidth, KHeight) style:UITableViewStyleGrouped];
-#else
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight) style:UITableViewStyleGrouped];
-#endif
-
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -70,8 +63,7 @@
         cell.themeTextLabel.text = @"意见反馈";
         cell.themeImageView.imgName = @"more_icon_feedback.png";
     }else {
-//        cell.textLabel.text = @"登陆";
-//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         if (appDelegate.sinaweibo.isLoggedIn) {
             logStr = @"登出当前账号";
@@ -81,13 +73,10 @@
         cell.themeTextLabel.text = logStr;
         cell.themeTextLabel.center = cell.contentView.center;
         cell.themeTextLabel.textAlignment = NSTextAlignmentCenter;
-//        cell.themeTextLabel.backgroundColor = [UIColor redColor];
     }
     if (indexPath.section != 2) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-//    cell.backgroundColor = []
-//    cell.textLabel.text = @"主题选择";
     return cell;
 }
 
@@ -112,26 +101,14 @@
                 
 
                 [appDelegate.sinaweibo logIn];
-//                if (appDelegate.sinaweibo.isLoggedIn) {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆成功" message:nil delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
-//                    [alert show];
-//
-//                }
-//                NSLog(@"%@",appDelegate.sinaweibo.isLoggedIn);
-                NSLog(@"11111");
+
                
             }
             
             
         }
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆成功" message:nil delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
-//        [alert show];
         [_tableView reloadData];
-
-
-        
     }
-//    [_tableView reloadData];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -145,10 +122,6 @@
     [_tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)viewWillAppear:(BOOL)animated{
     
     [_tableView reloadData];

@@ -40,19 +40,13 @@
 
 //创建tableView
 - (void)createTableView {
-    NSLog(@"%f",self.navigationController.navigationBar.frame.size.height);
-   
-#ifdef debug
-     _tableView = [[WeiboTableView alloc] initWithFrame:CGRectMake(0, 64, KWidth, KHeight)];
-#else 
-     _tableView = [[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight)];
-#endif
-//    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
-    _tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    _tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-//    _tableView.delegate = self;
-//    _tableView.dataSource = self;
+    _tableView = [[WeiboTableView alloc] init];
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 //设置AppDelegate为代理
@@ -76,10 +70,6 @@
                              delegate:self];
             request.tag = 100;
 #warning 加载提示
-//            CGRect frame = _tableView.frame;
-//            NSLog(@"加载前%@",frame);
-            //要先create TableView 然后 loadData，不然 _tableView 会上移
-
             [self showHUD:@"正在加载"];
             _tableView.hidden = YES;
     
@@ -89,14 +79,6 @@
 
 }
 - (void)loadNewData {
-    
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-//        // Do something...
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        });
-//    });
     
     SinaWeibo *sinaweibo = [self sinaweibo];
     WeiboViewLaoutFrame *layout = [_dataArray firstObject];
@@ -126,10 +108,7 @@
                                                  delegate:self];
     request.tag = 102;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
     
     
@@ -143,7 +122,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-//    NSLog(@"ddd:%@",NSHomeDirectory());
     [_tableView reloadData];
 }
 
@@ -195,8 +173,8 @@
 //    [_tableView reloadData];
     
     
-    [_tableView.header endRefreshing];
-    [_tableView.footer endRefreshing];
+    [_tableView.mj_header endRefreshing];
+    [_tableView.mj_footer endRefreshing];
     [_tableView reloadData];
 }
 

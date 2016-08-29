@@ -7,7 +7,6 @@
 //
 
 #import "LeftViewController.h"
-#import "MMExampleDrawerVisualStateManager.h"
 #import "ThemeLabel.h"
 @interface LeftViewController ()
 

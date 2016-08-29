@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "UIViewExt.h"
+#import "UIView+Additions.h"
 #import "UIImageView+WebCache.h"
-
+#import "Masonry.h"
 #endif

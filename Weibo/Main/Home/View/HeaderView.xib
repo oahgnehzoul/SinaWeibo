@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,22 +17,21 @@
                         <constraint firstAttribute="height" constant="55" id="443-jl-KMr"/>
                         <constraint firstAttribute="width" constant="55" id="cyY-TD-Rnq"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="27.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-Ov-RNN">
-                    <rect key="frame" x="85" y="10" width="140" height="31"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="31" id="Abk-UM-v96"/>
-                        <constraint firstAttribute="width" constant="140" id="CNk-Di-hB5"/>
-                    </constraints>
+                    <rect key="frame" x="75" y="13" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFW-hS-gtO">
-                    <rect key="frame" x="160" y="44" width="182" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="29" id="pnV-au-5n5"/>
-                    </constraints>
+                    <rect key="frame" x="317" y="49" width="33" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -39,14 +39,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="qFW-hS-gtO" secondAttribute="trailing" constant="25" id="0WM-YK-Mgx"/>
+                <constraint firstItem="qBj-Ov-RNN" firstAttribute="top" secondItem="glQ-eG-bEX" secondAttribute="top" constant="3" id="A6o-XZ-bqv"/>
                 <constraint firstItem="glQ-eG-bEX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Lfu-Y5-9oo"/>
-                <constraint firstAttribute="trailing" secondItem="qFW-hS-gtO" secondAttribute="trailing" constant="33" id="XQD-0e-BPg"/>
-                <constraint firstItem="qFW-hS-gtO" firstAttribute="leading" secondItem="glQ-eG-bEX" secondAttribute="trailing" constant="95" id="eUm-39-GTi"/>
-                <constraint firstItem="qBj-Ov-RNN" firstAttribute="top" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fQW-IE-MlO"/>
-                <constraint firstItem="qFW-hS-gtO" firstAttribute="top" secondItem="qBj-Ov-RNN" secondAttribute="bottom" constant="3" id="m5n-vY-rdV"/>
+                <constraint firstItem="qFW-hS-gtO" firstAttribute="bottom" secondItem="glQ-eG-bEX" secondAttribute="bottom" id="gmA-kz-c1H"/>
                 <constraint firstItem="glQ-eG-bEX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="paS-VU-s8o"/>
-                <constraint firstItem="qBj-Ov-RNN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="r1v-E3-Fz1"/>
-                <constraint firstItem="qBj-Ov-RNN" firstAttribute="leading" secondItem="glQ-eG-bEX" secondAttribute="trailing" constant="20" id="xll-de-TIl"/>
+                <constraint firstItem="qBj-Ov-RNN" firstAttribute="leading" secondItem="glQ-eG-bEX" secondAttribute="trailing" constant="10" id="u61-J6-0tx"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
@@ -57,9 +55,4 @@
             <point key="canvasLocation" x="412.5" y="218.5"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

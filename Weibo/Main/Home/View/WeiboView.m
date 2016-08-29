@@ -8,7 +8,6 @@
 
 #import "WeiboView.h"
 #import "WeiboModel.h"
-#import "UIViewExt.h"
 #import "UIImageView+WebCache.h"
 #import "ThemeManger.h"
 @implementation WeiboView
@@ -60,7 +59,6 @@
     _textLabel.font = [UIFont systemFontOfSize:13];
     _textLabel.textColor = [[ThemeManger shareInstance] getThemeColor:@"Timeline_Content_color"];
     _sourceLabel.textColor = [[ThemeManger shareInstance] getThemeColor:@"Timeline_Content_color"];
-//    _textLabel.colorName = @"Timeline_Content_color";
     //2  微博是否是转发的
     
     if (model.reWeiboModel != nil) {
@@ -70,11 +68,9 @@
         self.bgImageView.frame = self.layoutFrame.bgImageFrame;
         
         //原微博内容及frame
-//        self.sourceLabel.text = model.reWeiboModel.text;
        
         self.sourceLabel.text = [NSString stringWithFormat:@"@%@ %@",model.reWeiboModel.userModel.screen_name,model.reWeiboModel.text];
         self.sourceLabel.frame = self.layoutFrame.srTextFrame;
-//        self.sourceLabel.colorName = @"Timeline_Content_color";
         self.sourceLabel.font = [UIFont systemFontOfSize:13];
         NSString *imgUrl = model.reWeiboModel.thumbnailImage;
         
@@ -125,7 +121,6 @@
 - (void)themeChangeAction {
     _textLabel.textColor = [[ThemeManger shareInstance] getThemeColor:@"Timeline_Content_color"];
     _sourceLabel.textColor = [[ThemeManger shareInstance] getThemeColor:@"Timeline_Content_color"];
-//    [self setNeedsDisplay];
     [self setNeedsLayout];
 }
 -(void)dealloc {

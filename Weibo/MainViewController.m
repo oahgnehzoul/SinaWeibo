@@ -27,7 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [self createViewControllers];
     [self createTabBarView];
@@ -43,7 +42,6 @@
 }
 
 - (void)createTabBarView {
-//    [self.tabBar removeFromSuperview];
     for (UIView *view in self.tabBar.subviews) {
         Class cls = NSClassFromString(@"UITabBarButton");
         if ([view isKindOfClass: cls]) {
@@ -53,7 +51,7 @@
     
     _tabBarView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth, 49)];
     _tabBarView.userInteractionEnabled = YES;
-//    _tabBarView.image = [UIImage imageNamed:@"Skins/cat/mask_navbar.png"];
+
     _tabBarView.imgName = @"mask_navbar.png";
 
 
@@ -87,18 +85,8 @@
         _selectImageView.center = btn.center;
 
     }];
-//    [self selectAction:btn.tag];
     self.selectedIndex = btn.tag;
 }
-//- (void)selectAction:(NSInteger)selectIndex {
-//    if (_selectIndex != selectIndex) {
-//        UIViewController *lastVC = self.childViewControllers[_selectIndex];
-//        UIViewController *currentVC = self.childViewControllers[selectIndex];
-//        [lastVC.view removeFromSuperview];
-//        [self.view insertSubview:currentVC.view belowSubview:_tabBarView];
-//        _selectIndex = selectIndex;
-//    }
-//}
 - (void)createViewControllers {
     //,@"Message"
     NSArray *storyboardNames = @[@"Home",@"Profile",@"Discover",@"More"];
@@ -106,11 +94,9 @@
     for (NSString *name in storyboardNames) {
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:name bundle:nil];
         BaseNavController *nav = [storyBoard instantiateInitialViewController];
-//        [self addChildViewController:nav];
         [ViewControllers addObject:nav];
     }
-//    UIViewController *firstVc = self.childViewControllers[0];
-//    [self.view insertSubview:firstVc.view belowSubview:_tabBarView];
+
     self.viewControllers = ViewControllers;
 
 }
@@ -119,7 +105,6 @@
     CGFloat tabBarButtonWidth = KWidth / 4;
     if (_badgeView == nil) {
         _badgeView = [[ThemeImageView alloc] initWithFrame:CGRectMake(tabBarButtonWidth - 32, 0, 32, 32)];
-//        _badgeView.backgroundColor = [UIColor redColor];
         _badgeView.imgName = @"number_notify_9.png";
         [self.tabBar addSubview:_badgeView];
         
@@ -138,16 +123,11 @@
         if (count >= 100) {
             count = 99;
         }
-        _badgeLabel.text = [NSString stringWithFormat:@"%d",count];
+        _badgeLabel.text = [NSString stringWithFormat:@"%ld",count];
 
     }else {
         _badgeView.hidden = YES;
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

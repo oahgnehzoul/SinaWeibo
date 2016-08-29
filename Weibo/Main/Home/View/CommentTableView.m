@@ -26,15 +26,13 @@
     self.delegate =self;
     self.backgroundColor = [UIColor clearColor];
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    UINib *nib = [UINib nibWithNibName:@"CommentCell" bundle:nil];
-//    [self registerNib:nib forCellReuseIdentifier:@"cell"];
+
     [self registerClass:[CommentCell class] forCellReuseIdentifier:@"cell"];
 }
 #pragma mark - UITableViewDataSoure
 //cell的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
    return self.commentModelArray.count;
-//    return 20;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -44,7 +42,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-//    NSLog(@"%@",self.commentModelArray);
     cell.commentModel = self.commentModelArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -53,10 +50,6 @@
 //设置tableView的cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    WeiboViewLaoutFrame *layoutFrame = self.commentModelArray[indexPath.row];
-//    CGRect frame = layoutFrame.frame;
-//    CGFloat height = frame.size.height;
-//    return height + 72;
     CommentModel *model = self.commentModelArray[indexPath.row];
     CGFloat height = [WXLabel getTextHeight:14 width:KWidth-55 text:model.text linespace:10.0f];
     return height +50;

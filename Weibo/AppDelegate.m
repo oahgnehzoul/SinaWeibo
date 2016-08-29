@@ -12,7 +12,7 @@
 #import "LeftViewController.h"
 #import "RightViewController.h"
 #import "MMDrawerController.h"
-#import "MMExampleDrawerVisualStateManager.h"
+#import "MMDrawerVisualState.h"
 @interface AppDelegate ()
 
 @end
@@ -55,18 +55,28 @@
     [mmDraw setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
     //设置动画类型
-    [[MMExampleDrawerVisualStateManager sharedManager] setLeftDrawerAnimationType:MMDrawerAnimationTypeParallax];
-    [[MMExampleDrawerVisualStateManager sharedManager] setRightDrawerAnimationType:MMDrawerAnimationTypeParallax];
-    
-    //设置动画效果
-    [mmDraw setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-        MMDrawerControllerDrawerVisualStateBlock block;
-        block = [[MMExampleDrawerVisualStateManager sharedManager] drawerVisualStateBlockForDrawerSide:drawerSide];
-        if (block) {
-            block(drawerController,drawerSide,percentVisible);
-        }
-    }];
-    
+//    [[MMExampleDrawerVisualStateManager sharedManager] setLeftDrawerAnimationType:MMDrawerAnimationTypeParallax];
+//    [[MMExampleDrawerVisualStateManager sharedManager] setRightDrawerAnimationType:MMDrawerAnimationTypeParallax];
+//    
+//    //设置动画效果
+//    [mmDraw setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+//        MMDrawerControllerDrawerVisualStateBlock block;
+//        block = [[MMExampleDrawerVisualStateManager sharedManager] drawerVisualStateBlockForDrawerSide:drawerSide];
+//        if (block) {
+//            block(drawerController,drawerSide,percentVisible);
+//        }
+//    }];
+    [mmDraw
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         UIViewController * sideDrawerViewController;
+         if(drawerSide == MMDrawerSideLeft){
+             sideDrawerViewController = drawerController.leftDrawerViewController;
+         }
+         else if(drawerSide == MMDrawerSideRight){
+             sideDrawerViewController = drawerController.rightDrawerViewController;
+         }
+         [sideDrawerViewController.view setAlpha:percentVisible];
+     }];
     
     self.window.rootViewController = mmDraw;
     

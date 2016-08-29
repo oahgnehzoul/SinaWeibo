@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet ThemeLabel *commentLabel;
 @property (weak, nonatomic) IBOutlet ThemeLabel *repostsLabel;
 @property (weak, nonatomic) IBOutlet ThemeLabel *sourceLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *favoritedLabel;
 
 @property (nonatomic,strong) WeiboViewLaoutFrame *layoutFrame;
 @property (nonatomic,strong) WeiboView *weiboView;

@@ -23,20 +23,7 @@
 
 
 - (void)_layoutFrame {
-//    self.textFrame = CGRectMake(5, 0, KWidth-60, 30);
-//    self.srTextFrame = CGRectMake(10, 55, KWidth-80, 60);
-//    self.imgFrame = CGRectMake(10,120 , 80, 80);
-//    self.bgImageFrame = CGRectMake(5, 50, KWidth-80, 200);
-//    self.frame = CGRectMake(50, 55, KWidth-55, 260);
-//
-    //根据 weiboModel计算
-    
-//    self.textFrame = CGRectMake(0, 0, 300, 60);
-//    self.srTextFrame = CGRectMake(0,60, 300, 60);
-//    self.imgFrame = CGRectMake(0, 120, 80, 80);
-//    self.bgImageFrame = CGRectMake(0, 60, 300, 140);
-//    
-//    self.frame = CGRectMake(55, 55, 300, 200);
+
     //根据 weiboModel计算
     
     //1.微博视图的frame
@@ -67,7 +54,6 @@
         CGFloat Y = CGRectGetMaxY(self.textFrame)+10;
         self.srTextFrame = CGRectMake(20 , Y, reTextWidth, textHeight);
         
-//        self.nameFrame = CGRectMake(20, Y, 100, 14);
         //4.原微博的图片
         NSString *thumbnailImage = self.weiboModel.reWeiboModel.thumbnailImage;
         if (thumbnailImage != nil) {
