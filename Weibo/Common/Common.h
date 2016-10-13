@@ -35,4 +35,8 @@
 
 #define nearby_timeline @"https://api.weibo.com/2/place/nearby_timeline.json"
 
+//colors
+#define WBTabBarSelectedColor @"#fd8224"
+#define WBTabBarunSelectedColor @"#797979"
+
 #endif

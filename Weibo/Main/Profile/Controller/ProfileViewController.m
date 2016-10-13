@@ -30,10 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadUserData];
+//    [self loadUserData];
 //    [self _loadWeiboData];
-    [self _createHeaderView];
-    [self _createTableView];
+//    [self _createHeaderView];
+//    [self _createTableView];
 }
 
 

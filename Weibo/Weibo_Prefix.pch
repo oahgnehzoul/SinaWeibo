@@ -20,4 +20,5 @@
 #import "UIImageView+WebCache.h"
 #import "Masonry.h"
 #import "WeiboSDK.h"
+#import "HexColors.h"
 #endif

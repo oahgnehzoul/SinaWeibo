@@ -17,12 +17,15 @@
 #import "ThemeManger.h"
 
 @interface MainViewController ()
-{
-    ThemeImageView *_tabBarBackView;
-    ThemeImageView *_selectImageView;
-    ThemeImageView *_badgeView;
-    ThemeLabel *_badgeLabel;
-}
+//{
+//    ThemeImageView *_tabBarBackView;
+//    ThemeImageView *_selectImageView;
+//    ThemeImageView *_badgeView;
+//    ThemeLabel *_badgeLabel;
+//}
+
+
+
 @end
 
 @implementation MainViewController
@@ -31,11 +34,41 @@
     [super viewDidLoad];
     
     [self createViewControllers];
-    [self setTabBarItems];
+//    [self setTabBarItems];
     
-//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-}
+    NSArray *titles = @[@"首页",@"消息",@"",@"发现",@"我"];
+    NSArray *icons = @[@"tabbar_home",@"tabbar_message_center",@"",@"tabbar_discover",@"tabbar_profile"];
+    for (int i = 0; i < self.tabBar.items.count; i++) {
+        if (i == 2) {
+            RDVTabBarItem *item = self.tabBar.items[2];
+            item.backgroundColor = [UIColor whiteColor];
 
+            [item setBackgroundSelectedImage:[UIImage imageNamed:@"tabbar_compose_button"] withUnselectedImage:[UIImage imageNamed:@"tabbar_compose_button"]];
+            UIImageView *add = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"]];
+            [item addSubview:add];
+            [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(item);
+            }];
+            
+        } else {
+            RDVTabBarItem *item = self.tabBar.items[i];
+            item.imagePositionAdjustment = UIOffsetMake(0, -2);
+            item.badgeTextFont = [UIFont systemFontOfSize:9];
+            item.badgePositionAdjustment = UIOffsetMake(-3, 0);
+            NSDictionary *unselectedTitleAttributes = @{NSForegroundColorAttributeName: [UIColor hx_colorWithHexRGBAString:WBTabBarunSelectedColor]};
+            NSDictionary *selectedTitleAttributes = @{NSForegroundColorAttributeName:[UIColor hx_colorWithHexRGBAString:WBTabBarSelectedColor]};
+            item.unselectedTitleAttributes = unselectedTitleAttributes;
+            item.selectedTitleAttributes = selectedTitleAttributes;
+            item.title = titles[i];
+            item.backgroundColor = [UIColor whiteColor];
+            UIImage *icon = [UIImage imageNamed:icons[i]];
+            UIImage *selectedIcon = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected", icons[i]]];
+            [item setFinishedSelectedImage:selectedIcon withFinishedUnselectedImage:icon];
+        }
+    }
+    
+}
+/*
 - (void)setTabBarItems {
     if (!_tabBarBackView) {
         _tabBarBackView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth, 49)];
@@ -59,16 +92,9 @@
         [self.tabBar addSubview:_selectImageView];
     }
 }
-
-//- (void)timerAction {
-//    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    SinaWeibo *sinaweibo = delegate.sinaweibo;
-//    [sinaweibo requestWithURL:remindCount params:nil httpMethod:@"GET" delegate:self];
-//}
-
+*/
 - (void)createViewControllers {
-    //,@"Message"
-    NSArray *storyboardNames = @[@"Home",@"Profile",@"Discover",@"More"];
+    NSArray *storyboardNames = @[@"Home",@"Message",@"Profile",@"Discover",@"More"];
     NSMutableArray *ViewControllers = [[NSMutableArray alloc] init];
     for (NSString *name in storyboardNames) {
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:name bundle:nil];
@@ -80,45 +106,17 @@
 
 }
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex {
-    [super setSelectedIndex:selectedIndex];
-    [UIView animateWithDuration:.2 animations:^{
-        _selectImageView.center = self.tabBar.selectedItem.center;
-    }];
-    if (selectedIndex == 0) {
-        _selectImageView.center = CGPointMake(KWidth / 8, 49 / 2);
-    }
-
-}
-
-//- (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result {
-//    CGFloat tabBarButtonWidth = KWidth / 4;
-//    if (_badgeView == nil) {
-//        _badgeView = [[ThemeImageView alloc] initWithFrame:CGRectMake(tabBarButtonWidth - 32, 0, 32, 32)];
-//        _badgeView.imgName = @"number_notify_9.png";
-//        [self.tabBar addSubview:_badgeView];
-//        
-//        _badgeLabel = [[ThemeLabel alloc] initWithFrame:_badgeView.bounds];
-//        _badgeLabel.textAlignment = NSTextAlignmentCenter;
-//        _badgeLabel.backgroundColor = [UIColor clearColor];
-//        _badgeLabel.colorName = @"Timeline_Notice_color";
-//        [_badgeView addSubview:_badgeLabel];
+//- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+//    [super setSelectedIndex:selectedIndex];
+//    [UIView animateWithDuration:.2 animations:^{
+//        _selectImageView.center = self.tabBar.selectedItem.center;
+//    }];
+//    if (selectedIndex == 0) {
+//        _selectImageView.center = CGPointMake(KWidth / 8, 49 / 2);
 //    }
-//    
-//    NSNumber *status = [result objectForKey:@"status"];
-//    NSInteger count = [status integerValue];
 //
-//    if (count > 0) {
-//        _badgeView.hidden = NO;
-//        if (count >= 100) {
-//            count = 99;
-//        }
-//        _badgeLabel.text = [NSString stringWithFormat:@"%ld",count];
-//
-//    }else {
-//        _badgeView.hidden = YES;
-//    }
 //}
+
 
 
 @end

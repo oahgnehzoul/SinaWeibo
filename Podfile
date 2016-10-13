@@ -10,4 +10,5 @@ target 'Weibo' do
     pod 'RDVTabBarController', '~> 1.1.9'
 	pod 'YYModel', '~> 1.0.4'
 	pod 'WeiboSDK', '~> 3.1.3'
+	pod 'HexColors', '~> 4.0.0'
 end
