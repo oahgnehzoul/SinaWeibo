@@ -12,6 +12,7 @@
 @implementation WeiboCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.weiboView = [[WeiboView alloc] initWithFrame:CGRectZero];
     self.weiboView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.weiboView];

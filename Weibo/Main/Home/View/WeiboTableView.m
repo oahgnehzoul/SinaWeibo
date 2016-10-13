@@ -19,6 +19,7 @@
     return self;
 }
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self createTableView];
 }
 //创建tableView

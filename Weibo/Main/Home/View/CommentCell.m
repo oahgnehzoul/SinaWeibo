@@ -12,8 +12,7 @@
 @implementation CommentCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    [self setNeedsLayout];
+    [super awakeFromNib];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

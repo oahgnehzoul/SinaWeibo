@@ -56,7 +56,6 @@
 		34FA93C61B8422CF00CBD9DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA93C51B8422CF00CBD9DA /* AppDelegate.m */; };
 		34FA93CE1B8422CF00CBD9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FA93CD1B8422CF00CBD9DA /* Images.xcassets */; };
 		34FA93D11B8422CF00CBD9DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FA93CF1B8422CF00CBD9DA /* LaunchScreen.xib */; };
-		34FA93DD1B8422CF00CBD9DA /* WeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA93DC1B8422CF00CBD9DA /* WeiboTests.m */; };
 		34FA93FE1B8423E700CBD9DA /* BaseNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA93FD1B8423E700CBD9DA /* BaseNavController.m */; };
 		34FA94011B84241300CBD9DA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA94001B84241300CBD9DA /* BaseViewController.m */; };
 		34FA94041B84243400CBD9DA /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA94031B84243400CBD9DA /* DiscoverViewController.m */; };
@@ -531,8 +530,6 @@
 		34FA93CD1B8422CF00CBD9DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		34FA93D01B8422CF00CBD9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34FA93D61B8422CF00CBD9DA /* WeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		34FA93DB1B8422CF00CBD9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34FA93DC1B8422CF00CBD9DA /* WeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboTests.m; sourceTree = "<group>"; };
 		34FA93FC1B8423E700CBD9DA /* BaseNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavController.h; sourceTree = "<group>"; };
 		34FA93FD1B8423E700CBD9DA /* BaseNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavController.m; sourceTree = "<group>"; };
 		34FA93FF1B84241300CBD9DA /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -977,7 +974,6 @@
 				3499A6701B953C4300DCBDC9 /* CoreLocation.framework */,
 				34CA657F1B8C55E300BF60DF /* libicucore.dylib */,
 				34FA93BF1B8422CF00CBD9DA /* Weibo */,
-				34FA93D91B8422CF00CBD9DA /* WeiboTests */,
 				34FA93BE1B8422CF00CBD9DA /* Products */,
 				4220D580F130DED5B7937430 /* Pods */,
 				D5349A0ACBC6547E1C840C2F /* Frameworks */,
@@ -1016,23 +1012,6 @@
 				34FA93C11B8422CF00CBD9DA /* Info.plist */,
 				34FA93C21B8422CF00CBD9DA /* main.m */,
 				34FA941D1B8428A700CBD9DA /* Weibo_Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		34FA93D91B8422CF00CBD9DA /* WeiboTests */ = {
-			isa = PBXGroup;
-			children = (
-				34FA93DC1B8422CF00CBD9DA /* WeiboTests.m */,
-				34FA93DA1B8422CF00CBD9DA /* Supporting Files */,
-			);
-			path = WeiboTests;
-			sourceTree = "<group>";
-		};
-		34FA93DA1B8422CF00CBD9DA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				34FA93DB1B8422CF00CBD9DA /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1792,7 +1771,7 @@
 		34FA93B51B8422CF00CBD9DA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = oahgnehzoul;
 				TargetAttributes = {
 					34FA93BC1B8422CF00CBD9DA = {
@@ -2318,7 +2297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34FA93DD1B8422CF00CBD9DA /* WeiboTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2357,8 +2335,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2401,8 +2381,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

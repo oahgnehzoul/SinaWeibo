@@ -69,7 +69,6 @@
                            httpMethod:@"GET"
                              delegate:self];
             request.tag = 100;
-#warning 加载提示
             [self showHUD:@"正在加载"];
             _tableView.hidden = YES;
     
