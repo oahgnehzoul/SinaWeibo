@@ -7,33 +7,11 @@
 //
 
 #import "Utils.h"
-//#import "WeiboCell.h"
 #import "RegexKitLite.h"
 @implementation Utils
 
-
-//创建一个NSDateFormatter,设置格式
-//NSString *formatterStr = @"EEE MMM dd HH:mm:ss Z yyyy";
-//NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//[formatter setDateFormat:formatterStr];
-//
-//[NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"]];
-//
-////Date,
-//NSDate *date = [[NSDate alloc] init];
-//date = [formatter dateFromString:self.model.createDate];
-//
-//
-//NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//[dateFormatter setDateFormat:@"MM月dd日 HH:mm"];
-//
-//NSString *time = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:date]];
-//
-//self.creatTime.text = time;
-//
-
 + (NSDate *)dateFromString:(NSString *)dateString withFormatterStr:(NSString *)formatterStr {
-//    NSString *formatterStr = @"EEE MMM dd HH:mm:ss Z yyyy";
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatterStr];
     NSDate *date = [formatter dateFromString:dateString];

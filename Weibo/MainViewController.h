@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SinaWeiboRequest.h"
-@interface MainViewController : UITabBarController<SinaWeiboRequestDelegate>
+#import "RDVTabBarController.h"
+@interface MainViewController : RDVTabBarController<SinaWeiboRequestDelegate>
 
-//@property (nonatomic,assign) NSInteger selectIndex;
+
 
 @end

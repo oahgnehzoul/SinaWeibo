@@ -14,9 +14,11 @@
 #import "SinaWeibo.h"
 #import "ThemeLabel.h"
 #import "MBProgressHUD.h"
+#import "RDVTabBarItem.h"
+#import "ThemeManger.h"
 @interface MainViewController ()
 {
-    ThemeImageView *_tabBarView;
+    ThemeImageView *_tabBarBackView;
     ThemeImageView *_selectImageView;
     ThemeImageView *_badgeView;
     ThemeLabel *_badgeLabel;
@@ -29,64 +31,41 @@
     [super viewDidLoad];
     
     [self createViewControllers];
-    [self createTabBarView];
-    
+    [self setTabBarItems];
     
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-
 }
+
+- (void)setTabBarItems {
+    if (!_tabBarBackView) {
+        _tabBarBackView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth, 49)];
+        _tabBarBackView.imgName = @"mask_navbar.png";
+        [self.tabBar.backgroundView addSubview:_tabBarBackView];
+    }
+    NSUInteger index = 0;
+    NSArray *images = @[ @"home_tab_icon_1.png",
+                         @"home_tab_icon_4.png",
+                         @"home_tab_icon_3.png",
+                         @"home_tab_icon_5.png"
+                         ];
+    for (RDVTabBarItem *item in [self.tabBar items]) {
+        UIImage *image = [[ThemeManger shareInstance] getImage:images[index]];
+        [item setFinishedSelectedImage:image withFinishedUnselectedImage:image];
+        index++;
+    }
+    if (!_selectImageView) {
+        _selectImageView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth / images.count, 49)];
+        _selectImageView.imgName = @"home_bottom_tab_arrow.png";
+        [self.tabBar addSubview:_selectImageView];
+    }
+}
+
 - (void)timerAction {
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     SinaWeibo *sinaweibo = delegate.sinaweibo;
     [sinaweibo requestWithURL:remindCount params:nil httpMethod:@"GET" delegate:self];
 }
 
-- (void)createTabBarView {
-    for (UIView *view in self.tabBar.subviews) {
-        Class cls = NSClassFromString(@"UITabBarButton");
-        if ([view isKindOfClass: cls]) {
-            [view removeFromSuperview];
-        }
-    }
-    
-    _tabBarView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth, 49)];
-    _tabBarView.userInteractionEnabled = YES;
-
-    _tabBarView.imgName = @"mask_navbar.png";
-
-
-    [self.tabBar addSubview:_tabBarView];
-    
-    //  @"home_tab_icon_2.png",
-    NSArray *imgNames = @[
-                          @"home_tab_icon_1.png",
-                          @"home_tab_icon_4.png",
-                          @"home_tab_icon_3.png",
-                          @"home_tab_icon_5.png",
-                          ];
-   
-    _selectImageView = [[ThemeImageView alloc] initWithFrame:CGRectMake(13, 0, 64, 49)];
-    _selectImageView.imgName = @"home_bottom_tab_arrow.png";
-
-    [self.tabBar addSubview:_selectImageView];
-    for (int i = 0; i < 4; i++) {
-        ThemeButton *button = [[ThemeButton alloc] initWithFrame:CGRectMake(i*KWidth/4, 0, KWidth/4, 49)];
-        button.nomalImageName = imgNames[i];
-
-        button.tag = i;
-        [button addTarget: self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.tabBar addSubview:button];
-    }
-
-}
-
-- (void)buttonAction:(UIButton *)btn {
-    [UIView animateWithDuration:.2 animations:^{
-        _selectImageView.center = btn.center;
-
-    }];
-    self.selectedIndex = btn.tag;
-}
 - (void)createViewControllers {
     //,@"Message"
     NSArray *storyboardNames = @[@"Home",@"Profile",@"Discover",@"More"];
@@ -98,6 +77,17 @@
     }
 
     self.viewControllers = ViewControllers;
+
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+    [super setSelectedIndex:selectedIndex];
+    [UIView animateWithDuration:.2 animations:^{
+        _selectImageView.center = self.tabBar.selectedItem.center;
+    }];
+    if (selectedIndex == 0) {
+        _selectImageView.center = CGPointMake(KWidth / 8, 49 / 2);
+    }
 
 }
 

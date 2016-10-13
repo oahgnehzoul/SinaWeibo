@@ -7,4 +7,5 @@ target 'Weibo' do
 	pod 'MMDrawerController', '~> 0.6.0'
     pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 	pod 'Masonry', '~> 1.0.1'
+    pod 'RDVTabBarController', '~> 1.1.9'
 end

@@ -34,6 +34,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
+  - RDVTabBarController (1.1.9)
   - Reveal-iOS-SDK (1.6.2)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - Masonry (~> 1.0.1)
   - MJRefresh (~> 3.1.12)
   - MMDrawerController (~> 0.6.0)
+  - RDVTabBarController (~> 1.1.9)
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.8.1)
 
@@ -52,9 +54,10 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 551f50a854cbab9d66c421b9ec6f2f8d0a733fa4
+PODFILE CHECKSUM: 4ce071bba10d48e14692470229d3108f8de3dfd4
 
 COCOAPODS: 1.0.1
