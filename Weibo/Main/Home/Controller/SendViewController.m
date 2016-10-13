@@ -8,7 +8,6 @@
 
 #import "SendViewController.h"
 #import "DataService.h"
-#import "SinaWeibo.h"
 #import "AppDelegate.h"
 #import "ThemeButton.h"
 #import "ThemeImageView.h"

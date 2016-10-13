@@ -8,7 +8,7 @@
 
 #import "DataService.h"
 #import "AFNetworking.h"
-#import "JSONKit.h"
+//#import "JSONKit.h"
 @implementation DataService
 
 
@@ -83,12 +83,12 @@
         //  id result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
         //jsonkit 解析
-        id result = [data objectFromJSONData];
+//        id result = [data objectFromJSONData];
         
         
         //把数据传递给界面
         if (block) {
-            block(result);
+//            block(result);
         }
         
         

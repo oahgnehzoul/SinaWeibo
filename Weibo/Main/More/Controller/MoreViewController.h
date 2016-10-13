@@ -7,8 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "SinaWeibo.h"
-@interface MoreViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,SinaWeiboDelegate>
+@interface MoreViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     
 }

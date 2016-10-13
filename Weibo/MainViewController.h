@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SinaWeiboRequest.h"
 #import "RDVTabBarController.h"
-@interface MainViewController : RDVTabBarController<SinaWeiboRequestDelegate>
+@interface MainViewController : RDVTabBarController
 
 
 

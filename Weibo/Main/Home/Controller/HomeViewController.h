@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "SinaWeibo.h"
-@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate,SinaWeiboDelegate>
+@interface HomeViewController : BaseViewController
 
 @end

@@ -12,11 +12,11 @@
 #define KWidth [UIScreen mainScreen].bounds.size.width
 #define KHeight [UIScreen mainScreen].bounds.size.height
 
-//新浪微博的key \
+// weibo \
 名称：We1boo
 #define kAppKey             @"2950451531"
 #define kAppSecret          @"47c81a11f382e70cec06d576e324d45b"
-#define kAppRedirectURI     @"http://www.baidu.com"
+#define kAppRedirectURI     @"https://api.weibo.com/oauth2/default.html"
 
 //系统版本
 #define   kVersion   [[UIDevice currentDevice].systemVersion floatValue]

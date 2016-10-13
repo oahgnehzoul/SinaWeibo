@@ -23,9 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createTableView];
+//    [self createTableView];
 }
-
+/*
 - (void)createTableView {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
@@ -129,5 +129,5 @@
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
     [_tableView reloadData];
 }
-
+*/
 @end

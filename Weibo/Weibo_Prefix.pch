@@ -19,4 +19,5 @@
 #import "UIView+Additions.h"
 #import "UIImageView+WebCache.h"
 #import "Masonry.h"
+#import "WeiboSDK.h"
 #endif

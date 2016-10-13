@@ -10,8 +10,8 @@
 #import "WeiboView.h"
 #import "WeiboModel.h"
 #import "WeiboViewLaoutFrame.h"
-#import "SinaWeibo.h"
-@interface DetailWeiboViewController : BaseViewController<SinaWeiboRequestDelegate>
+
+@interface DetailWeiboViewController : BaseViewController
 
 
 @property (nonatomic,strong) WeiboViewLaoutFrame *layoutFrame;

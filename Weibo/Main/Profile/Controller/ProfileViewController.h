@@ -7,8 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "SinaWeiboRequest.h"
-@interface ProfileViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,SinaWeiboRequestDelegate>
+@interface ProfileViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 

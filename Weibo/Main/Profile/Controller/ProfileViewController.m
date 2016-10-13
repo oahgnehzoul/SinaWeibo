@@ -13,7 +13,6 @@
 #import "MJRefresh.h"
 #import "DataService.h"
 #import "WeiboCell.h"
-#import "SinaWeiboRequest.h"
 #import "AppDelegate.h"
 #import "FansViewController.h"
 @interface ProfileViewController ()
@@ -32,7 +31,7 @@
     [super viewDidLoad];
     
     [self loadUserData];
-    [self _loadWeiboData];
+//    [self _loadWeiboData];
     [self _createHeaderView];
     [self _createTableView];
 }
@@ -78,6 +77,7 @@
         _headView.userModel = _userModel;
     }];
 }
+/*
 - (void)_loadWeiboData {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     SinaWeibo *sinaweibo = [self sinaweibo];
@@ -133,4 +133,5 @@
     return height + 72;
 
 }
+ */
 @end

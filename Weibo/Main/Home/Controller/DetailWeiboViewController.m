@@ -46,11 +46,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self _createTopView];
-    [self _createCommentTableView];
-    [self _loadCommentData];
+//    [self _createTopView];
+//    [self _createCommentTableView];
+//    [self _loadCommentData];
 }
-
+/*
 - (void)_createTopView {
     _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, KWidth, 0)];
     [self.view addSubview:_topView];
@@ -84,6 +84,7 @@
     _commentTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 
 }
+/*
 - (void)loadNewData {
     
 
@@ -199,6 +200,6 @@
 }
 
 
-
+*/
 
 @end

@@ -11,7 +11,6 @@
 #import "DataService.h"
 #import "ThemeButton.h"
 #import "MMDrawerController.h"
-#import "SinaWeiboRequest.h"
 @interface NearByViewController ()
 
 @end
