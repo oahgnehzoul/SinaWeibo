@@ -15,16 +15,11 @@
 #import "MBProgressHUD.h"
 #import "RDVTabBarItem.h"
 #import "ThemeManger.h"
+#import "WBPublishMenuView.h"
 
-@interface MainViewController ()
-//{
-//    ThemeImageView *_tabBarBackView;
-//    ThemeImageView *_selectImageView;
-//    ThemeImageView *_badgeView;
-//    ThemeLabel *_badgeLabel;
-//}
+@interface MainViewController ()<RDVTabBarControllerDelegate>
 
-
+@property (nonatomic, strong) WBPublishMenuView *menuView;
 
 @end
 
@@ -34,8 +29,7 @@
     [super viewDidLoad];
     
     [self createViewControllers];
-//    [self setTabBarItems];
-    
+    self.tabBar.frame = CGRectMake(0, 0, KWidth, 44);
     NSArray *titles = @[@"首页",@"消息",@"",@"发现",@"我"];
     NSArray *icons = @[@"tabbar_home",@"tabbar_message_center",@"",@"tabbar_discover",@"tabbar_profile"];
     for (int i = 0; i < self.tabBar.items.count; i++) {
@@ -44,7 +38,7 @@
             item.backgroundColor = [UIColor whiteColor];
 
             [item setBackgroundSelectedImage:[UIImage imageNamed:@"tabbar_compose_button"] withUnselectedImage:[UIImage imageNamed:@"tabbar_compose_button"]];
-            UIImageView *add = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"]];
+            UIImageView *add = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] highlightedImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"]];
             [item addSubview:add];
             [add mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.center.equalTo(item);
@@ -52,11 +46,10 @@
             
         } else {
             RDVTabBarItem *item = self.tabBar.items[i];
-            item.imagePositionAdjustment = UIOffsetMake(0, -2);
-            item.badgeTextFont = [UIFont systemFontOfSize:9];
+            item.badgeTextFont = [UIFont systemFontOfSize:8];
             item.badgePositionAdjustment = UIOffsetMake(-3, 0);
-            NSDictionary *unselectedTitleAttributes = @{NSForegroundColorAttributeName: [UIColor hx_colorWithHexRGBAString:WBTabBarunSelectedColor]};
-            NSDictionary *selectedTitleAttributes = @{NSForegroundColorAttributeName:[UIColor hx_colorWithHexRGBAString:WBTabBarSelectedColor]};
+            NSDictionary *unselectedTitleAttributes = @{NSForegroundColorAttributeName: [UIColor hx_colorWithHexRGBAString:WBTabBarunSelectedColor],NSFontAttributeName:[UIFont systemFontOfSize:10]};
+            NSDictionary *selectedTitleAttributes = @{NSForegroundColorAttributeName:[UIColor hx_colorWithHexRGBAString:WBTabBarSelectedColor],NSFontAttributeName:[UIFont systemFontOfSize:10]};
             item.unselectedTitleAttributes = unselectedTitleAttributes;
             item.selectedTitleAttributes = selectedTitleAttributes;
             item.title = titles[i];
@@ -67,32 +60,10 @@
         }
     }
     
+    
+   
 }
-/*
-- (void)setTabBarItems {
-    if (!_tabBarBackView) {
-        _tabBarBackView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth, 49)];
-        _tabBarBackView.imgName = @"mask_navbar.png";
-        [self.tabBar.backgroundView addSubview:_tabBarBackView];
-    }
-    NSUInteger index = 0;
-    NSArray *images = @[ @"home_tab_icon_1.png",
-                         @"home_tab_icon_4.png",
-                         @"home_tab_icon_3.png",
-                         @"home_tab_icon_5.png"
-                         ];
-    for (RDVTabBarItem *item in [self.tabBar items]) {
-        UIImage *image = [[ThemeManger shareInstance] getImage:images[index]];
-        [item setFinishedSelectedImage:image withFinishedUnselectedImage:image];
-        index++;
-    }
-    if (!_selectImageView) {
-        _selectImageView = [[ThemeImageView alloc] initWithFrame:CGRectMake(0, 0, KWidth / images.count, 49)];
-        _selectImageView.imgName = @"home_bottom_tab_arrow.png";
-        [self.tabBar addSubview:_selectImageView];
-    }
-}
-*/
+
 - (void)createViewControllers {
     NSArray *storyboardNames = @[@"Home",@"Message",@"Profile",@"Discover",@"More"];
     NSMutableArray *ViewControllers = [[NSMutableArray alloc] init];
@@ -106,16 +77,25 @@
 
 }
 
-//- (void)setSelectedIndex:(NSUInteger)selectedIndex {
-//    [super setSelectedIndex:selectedIndex];
-//    [UIView animateWithDuration:.2 animations:^{
-//        _selectImageView.center = self.tabBar.selectedItem.center;
-//    }];
-//    if (selectedIndex == 0) {
-//        _selectImageView.center = CGPointMake(KWidth / 8, 49 / 2);
-//    }
-//
-//}
+- (void)tabBar:(RDVTabBar *)tabBar didSelectItemAtIndex:(NSInteger)index {
+    [super tabBar:tabBar didSelectItemAtIndex:index];
+    if (index == 2) {
+        self.menuView = [[WBPublishMenuView alloc] init];
+        [self.view addSubview:self.menuView];
+        [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.view);
+        }];
+        [self.menuView showMenuInView:self.view];
+    }
+}
+
+- (BOOL)tabBar:(RDVTabBar *)tabBar shouldSelectItemAtIndex:(NSInteger)index {
+    if (index == 2) {
+        return YES;
+    }
+    return [super tabBar:tabBar shouldSelectItemAtIndex:index];
+}
+
 
 
 

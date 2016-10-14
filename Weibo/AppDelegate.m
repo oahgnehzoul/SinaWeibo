@@ -44,7 +44,7 @@
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};;
     [WeiboSDK sendRequest:request];
     
-    
+    /*
     LeftViewController *leftVc = [[LeftViewController alloc] init];
     RightViewController *rightVc = [[RightViewController alloc] init];
     
@@ -68,9 +68,11 @@
          }
          [sideDrawerViewController.view setAlpha:percentVisible];
      }];
-    
     self.window.rootViewController = mmDraw;
     
+     */
+    self.window.rootViewController = vc;
+     
     return YES;
 }
 

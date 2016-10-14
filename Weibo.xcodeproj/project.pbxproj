@@ -413,6 +413,7 @@
 		34FA96DA1B84513500CBD9DA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FA96D91B84513500CBD9DA /* MainViewController.m */; };
 		6032CC231DAFEDC00087D799 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6032CC221DAFEDC00087D799 /* Images.xcassets */; };
 		6032CC251DAFF0520087D799 /* ad_background-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6032CC241DAFF0520087D799 /* ad_background-667h@2x.png */; };
+		6032CC281DB067880087D799 /* WBPublishMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032CC271DB067880087D799 /* WBPublishMenuView.m */; };
 		609F49C51D740C57001B63F4 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 609F49C41D740C57001B63F4 /* UIView+Additions.m */; };
 		609F49DF1D742CF9001B63F4 /* AppIcon24x24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609F49D81D742CF9001B63F4 /* AppIcon24x24@2x.png */; };
 		609F49E01D742CF9001B63F4 /* AppIcon27.5x27.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609F49D91D742CF9001B63F4 /* AppIcon27.5x27.5@2x.png */; };
@@ -893,6 +894,8 @@
 		34FA96D91B84513500CBD9DA /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6032CC221DAFEDC00087D799 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6032CC241DAFF0520087D799 /* ad_background-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad_background-667h@2x.png"; sourceTree = "<group>"; };
+		6032CC261DB067880087D799 /* WBPublishMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPublishMenuView.h; sourceTree = "<group>"; };
+		6032CC271DB067880087D799 /* WBPublishMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPublishMenuView.m; sourceTree = "<group>"; };
 		609F49C31D740C57001B63F4 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		609F49C41D740C57001B63F4 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		609F49D81D742CF9001B63F4 /* AppIcon24x24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon24x24@2x.png"; sourceTree = "<group>"; };
@@ -983,6 +986,8 @@
 				34FA93C51B8422CF00CBD9DA /* AppDelegate.m */,
 				34FA96D81B84513500CBD9DA /* MainViewController.h */,
 				34FA96D91B84513500CBD9DA /* MainViewController.m */,
+				6032CC261DB067880087D799 /* WBPublishMenuView.h */,
+				6032CC271DB067880087D799 /* WBPublishMenuView.m */,
 				6032CC221DAFEDC00087D799 /* Images.xcassets */,
 				34FA93CF1B8422CF00CBD9DA /* LaunchScreen.xib */,
 				34FA93C01B8422CF00CBD9DA /* Supporting Files */,
@@ -2225,6 +2230,7 @@
 				34FA940F1B8424F000CBD9DA /* MoreViewController.m in Sources */,
 				34D5F8171B8AADCD003D8D6A /* UserModel.m in Sources */,
 				34FA93FE1B8423E700CBD9DA /* BaseNavController.m in Sources */,
+				6032CC281DB067880087D799 /* WBPublishMenuView.m in Sources */,
 				34892DFD1B872DAA00C3B1DC /* ThemeLabel.m in Sources */,
 				34892DFA1B87175700C3B1DC /* MoreTableViewCell.m in Sources */,
 				34892DEC1B86FD4F00C3B1DC /* ThemeImageView.m in Sources */,
